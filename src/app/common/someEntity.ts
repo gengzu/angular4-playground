@@ -1,13 +1,10 @@
 
 export class SomeEntity {
+    name: INAEntity;
+    age: INAEntity;
+}
 
-    constructor(name: string, age: number) {
-        this.name = name;
-        this.age = age;
-    }
-    
-    name: string;
-    age: number;
-    name_na: boolean;
-    age_na: boolean;
+export interface INAEntity {
+    value: any;
+    isNA: boolean;
 }
