@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { InputBoxComponent } from './input-box/inputBox.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InputBoxComponent
   ],
   imports: [
     BrowserModule
