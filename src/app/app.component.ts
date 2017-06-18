@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SomeEntity, INAEntity } from './common/someEntity';
+import { NgMediatorService } from "app/common/services/NgMediator.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
   entity: SomeEntity;
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private mediator: NgMediatorService) {
     this.entity = new SomeEntity();
     this.entity.name = {
       value: 'gengzu',
@@ -47,5 +48,13 @@ export class AppComponent implements OnInit {
     return !parseInt(entity.value) && !entity.isNA      
       ? { validateNumber: { valid: false } }
       : null;
+  }
+
+  showSpinner() {
+    this.mediator.publish('show_spinner', {});
+  }
+
+  hideSpinner() {
+    this.mediator.publish('hide_spinner');
   }
 }

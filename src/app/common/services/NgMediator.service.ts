@@ -1,5 +1,7 @@
+import { Injectable } from "@angular/core";
 import { IMediator } from "app/common/services/IMediator";
 
+@Injectable()
 export class NgMediatorService implements IMediator {
     private _handlers: IHandlerMap = {};
 
@@ -19,10 +21,10 @@ export class NgMediatorService implements IMediator {
         }
     }
 
-    publish(event: string, arg: any): void {
+    publish(event: string, arg?: any): void {
         if (this._handlers) {
             this._handlers[event].forEach(handler => {
-                handler(arg);
+                handler(arg || {});
             });
         }
     }
