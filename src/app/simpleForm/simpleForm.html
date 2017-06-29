@@ -1,0 +1,18 @@
+<form [formGroup]="myForm">
+  <input-box [(ngModel)]="entity.name" name="someName" formControlName="someName" [form]="myForm" [someArray]="getItems()"></input-box>
+  <input-box [(ngModel)]="entity.age" name="someAge" formControlName="someAge"  [form]="myForm"></input-box>
+
+<hr />
+
+{{ entity | json }}
+
+<hr />
+
+Dirty - {{ myForm.dirty }} <br />
+Valid - {{ myForm.valid }} <br />
+Pristine - {{ myForm.pristine }} <br />
+Invalid - {{ myForm.invalid }} <br />
+
+<hr />
+
+</form>

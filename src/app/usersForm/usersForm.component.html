@@ -1,0 +1,17 @@
+<button (click)="prev()">prev</button> <button (click)="next()">next</button>
+<hr />
+<form #myForm="ngForm">
+    Dirty - {{ myForm.dirty }} <br />
+    Valid - {{ myForm.valid }} <br />
+    Pristine - {{ myForm.pristine }} <br />
+    Invalid - {{ myForm.invalid }} <br />
+
+    <hr />
+
+    <b>currentUserId</b> - {{ currentUserId }}<br />
+    <b>id</b> - <input type="text" name="id" [(ngModel)]="currentUser.id" /><br />
+    <b>name</b> - <input type="text" name="name" [(ngModel)]="currentUser.name" /><br />
+    <b>age</b> - <input type="text" name="age" [(ngModel)]="currentUser.age" /><br />
+
+    <button type="button" *ngIf="myForm.dirty">Save</button>
+</form>

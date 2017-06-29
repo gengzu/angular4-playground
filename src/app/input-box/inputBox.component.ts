@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup  } from '@angular/forms'
 
 import { INAEntity } from '../common/someEntity'
@@ -16,8 +16,12 @@ import { INAEntity } from '../common/someEntity'
           required
         </div>
       </div>
+      <div *ngFor="let item of someArray">
+        {{ item }}
+      </div>
     </div>
     `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -32,6 +36,7 @@ export class InputBoxComponent implements ControlValueAccessor {
   title: string;
   @Input() form: FormGroup;
   @Input() formControlName: string;
+  @Input() someArray: Array<any>;
   propagateChange = (_: any) => {};
 
   onBlur() {

@@ -5,33 +5,10 @@
   </h1>  
 </div>
 
-<form [formGroup]="myForm">
-  <input-box [(ngModel)]="entity.name" name="someName" formControlName="someName" [form]="myForm"></input-box>
-  <input-box [(ngModel)]="entity.age" name="someAge" formControlName="someAge"  [form]="myForm"></input-box>
+<router-outlet></router-outlet>
 
-<hr />
-
-{{ entity | json }}
-
-<hr />
-
-Dirty - {{ myForm.dirty }} <br />
-Valid - {{ myForm.valid }} <br />
-Pristine - {{ myForm.pristine }} <br />
-Invalid - {{ myForm.invalid }} <br />
-
-<hr />
-
-<!--{{ someName.errors | json }}-->
-
-<!--<div *ngIf="formErrors.name" class="alert alert-danger">
-  {{ formErrors.name }}
-</div>-->
-
-</form>
-
-<hr />
+<!--<hr />
 <button (click)="showSpinner()">show</button>
 <button (click)="hideSpinner()">hide</button>
 <br />
-<spinner></spinner>
+<spinner></spinner>-->
